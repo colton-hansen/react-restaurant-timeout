@@ -65,7 +65,7 @@ export const mainNav: NavItem[] = [
   { id: 'hotel', label: 'Отель' },
   { id: 'bath', label: 'Банный комплекс' },
   { id: 'location', label: 'Локация и отзывы' },
-  { id: 'contacts', label: 'Контакты' },
+  { id: 'contacts', label: 'Конт.' },
 ]
 
 export const mainNavIdSet = new Set(mainNav.map((item) => item.id))
@@ -81,10 +81,13 @@ export const yandexOrgPage =
 export const yandexReviewsOrgPage =
   'https://yandex.ru/maps/org/taymaut/1136181638/reviews/'
 
-export const yandexEmbeds = {
-  mapSrc: `https://yandex.ru/map-widget/v1/?z=17&ol=biz&oid=${yandexOrgId}&lang=ru_RU`,
-  reviewsSrc: `https://yandex.ru/maps-reviews-widget/${yandexOrgId}?comments&lang=ru_RU`,
-} as const
+export function yandexEmbedUrls(locale: 'ru' | 'en') {
+  const lang = locale === 'en' ? 'en_RU' : 'ru_RU'
+  return {
+    mapSrc: `https://yandex.ru/map-widget/v1/?z=17&ol=biz&oid=${yandexOrgId}&lang=${lang}`,
+    reviewsSrc: `https://yandex.ru/maps-reviews-widget/${yandexOrgId}?comments&lang=${lang}`,
+  } as const
+}
 
 export const footerNotice =
   'Учебный макет сайта ресторана «Тайм-аут». Не является официальным ресурсом заведения.'
@@ -99,20 +102,3 @@ export const adress = [
   { a: 'Приморское шоссе 305', b: 'улица' }, 
 ] as const
 
-export const embedPlaceholders = [
-  {
-    id: 'photos',
-    title: 'Фото',
-    hint: 'Здесь будет галерея или слайдер с фотографиями ресторана и банного комплекса.',
-  },
-  {
-    id: 'map',
-    title: 'Яндекс.Карты',
-    hint: 'Здесь будет встроенный виджет Яндекс.Карт с адресом и маршрутом.',
-  },
-  {
-    id: 'reviews',
-    title: 'Отзывы',
-    hint: 'Здесь будут отзывы гостей (Яндекс, 2ГИС или другой источник).',
-  },
-] as const

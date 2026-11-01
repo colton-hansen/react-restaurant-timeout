@@ -20,6 +20,9 @@ export function MainMenuSection() {
       <h2 className="ct-section__title ct-section__title--caps">
         {copy.sectionTitles.menu}
       </h2>
+      {copy.menuLocaleNote ? (
+        <p className="ct-section__hint">{copy.menuLocaleNote}</p>
+      ) : null}
 
       <MenuCategoryGrid
         categories={mainMenuCategories}

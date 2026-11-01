@@ -2,7 +2,6 @@ import {
   YandexMapEmbed,
   YandexReviewsEmbed,
 } from '@/components/embed/YandexEmbeds'
-import { site } from '@/config/site'
 import { useUiPreferences } from '@/context/UiPreferencesContext'
 
 export function LocationSection() {
@@ -14,7 +13,7 @@ export function LocationSection() {
         {copy.sectionTitles.location}
       </h2>
       <p className="ct-prose ct-prose--muted ct-location__address">
-        {site.address}
+        {copy.address}
       </p>
 
       <div className="ct-location-grid">

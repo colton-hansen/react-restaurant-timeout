@@ -437,32 +437,27 @@
 .ct-settings-sheet__body {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
   padding: 0 1rem 1rem;
 
-  .ct-gray-btn {
-    justify-content: center;
-    width: 100%;
+  .ct-menu-block__title {
+    font-size: var(--ct-text-lead);
   }
 }
 
-.ct-settings-sheet__label {
-  color: var(--ct-text-muted);
-  font-size: var(--ct-text-sm);
+.ct-settings-sheet__action {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
   font-weight: 600;
-  margin: 0.75rem 0 0;
+  padding: 0;
+  text-align: left;
+  width: 100%;
 
-  &:first-child {
-    margin-top: 0;
-  }
-}
-
-.ct-settings-sheet__locale {
-  display: flex;
-  gap: 0.5rem;
-
-  .ct-gray-btn {
-    flex: 1;
+  &.is-active {
+    color: var(--ct-text);
   }
 }
 

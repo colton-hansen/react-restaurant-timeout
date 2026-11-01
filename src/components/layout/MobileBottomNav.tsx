@@ -31,9 +31,9 @@ export function MobileBottomNav() {
   } as CSSProperties
 
   return (
-    <nav className="ct-mobile-nav" aria-label="Мобильная навигация">
-      <div className="ct-mobile-nav__pill">
-        <div className="ct-mobile-nav__track" style={trackStyle}>
+    <nav className="ct-mobile-nav" aria-label={copy.mobileNavAriaLabel}>
+      <div className="ct-mobile-nav__bar">
+        <div className="ct-mobile-nav__pill" style={trackStyle}>
           <span className="ct-mobile-nav__indicator" aria-hidden />
           {mobileNav.map(({ id }) => {
             const Icon = iconById[id]
@@ -56,8 +56,8 @@ export function MobileBottomNav() {
         </div>
         <button
           type="button"
-          className={`ct-mobile-nav__settings${open ? ' is-active' : ''}`}
-          aria-label={copy.settingsSheet.title}
+          className={`ct-mobile-nav__pill ct-mobile-nav__pill--settings${open ? ' is-active' : ''}`}
+          aria-label={copy.mobileNav.settings}
           aria-expanded={open}
           onClick={() => (open ? closeSettings() : openSettings())}
         >

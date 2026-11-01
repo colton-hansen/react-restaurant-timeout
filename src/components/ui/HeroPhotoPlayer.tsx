@@ -1,5 +1,5 @@
 import { Lock, LockOpen } from 'lucide-react'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { GrayButton } from '@/components/ui/GrayButton'
 import { PhotoFrame } from '@/components/ui/PhotoFrame'
 import { heroGallery } from '@/config/homeGallery'
@@ -14,21 +14,20 @@ export function HeroPhotoPlayer() {
   const [index, setIndex] = useState(0)
   const [motion, setMotion] = useState<SlideMotion>('next')
   const [locked, setLocked] = useState(false)
-  const indexRef = useRef(index)
-  indexRef.current = index
 
   const current = heroGallery[index]
 
-  const go = (next: number) => {
+  const goTo = (next: number) => {
     if (locked) return
-    const len = heroGallery.length
-    const normalized = ((next % len) + len) % len
-    const prev = indexRef.current
-    if (normalized === prev) return
+    setIndex((prev) => {
+      const len = heroGallery.length
+      const normalized = ((next % len) + len) % len
+      if (normalized === prev) return prev
 
-    const forward = (normalized - prev + len) % len
-    setMotion(forward <= len / 2 ? 'next' : 'prev')
-    setIndex(normalized)
+      const forward = (normalized - prev + len) % len
+      setMotion(forward <= len / 2 ? 'next' : 'prev')
+      return normalized
+    })
   }
 
   useEffect(() => {
@@ -56,7 +55,7 @@ export function HeroPhotoPlayer() {
       </PhotoFrame>
 
       <div className="ct-photo-player__controls">
-        <GrayButton arrow="left" onClick={() => go(index - 1)} disabled={locked}>
+        <GrayButton arrow="left" onClick={() => goTo(index - 1)} disabled={locked}>
           {copy.buttons.galleryBack}
         </GrayButton>
         <GrayButton
@@ -71,7 +70,7 @@ export function HeroPhotoPlayer() {
             <LockOpen className="ct-gray-btn__icon" aria-hidden />
           )}
         </GrayButton>
-        <GrayButton arrow="right" onClick={() => go(index + 1)} disabled={locked}>
+        <GrayButton arrow="right" onClick={() => goTo(index + 1)} disabled={locked}>
           {copy.buttons.galleryForward}
         </GrayButton>
       </div>

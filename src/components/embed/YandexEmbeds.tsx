@@ -1,12 +1,16 @@
-import { yandexEmbeds } from '@/config/site'
+import { yandexEmbedUrls } from '@/config/site'
+import { useUiPreferences } from '@/context/UiPreferencesContext'
 
 export function YandexMapEmbed() {
+  const { locale, copy } = useUiPreferences()
+  const { mapSrc } = yandexEmbedUrls(locale)
+
   return (
     <iframe
-      key={yandexEmbeds.mapSrc}
-      title="Яндекс.Карты — Тайм-аут"
+      key={mapSrc}
+      title={copy.yandexMapTitle}
       className="ct-yandex-embed"
-      src={yandexEmbeds.mapSrc}
+      src={mapSrc}
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
       allowFullScreen
@@ -15,12 +19,15 @@ export function YandexMapEmbed() {
 }
 
 export function YandexReviewsEmbed() {
+  const { locale, copy } = useUiPreferences()
+  const { reviewsSrc } = yandexEmbedUrls(locale)
+
   return (
     <iframe
-      key={yandexEmbeds.reviewsSrc}
-      title="Отзывы — Яндекс"
+      key={reviewsSrc}
+      title={copy.yandexReviewsTitle}
       className="ct-yandex-embed"
-      src={yandexEmbeds.reviewsSrc}
+      src={reviewsSrc}
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
     />

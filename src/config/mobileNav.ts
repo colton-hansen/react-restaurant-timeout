@@ -3,7 +3,7 @@ export const mobileNav = [
   { id: 'about', label: 'О нас' },
   { id: 'menu', label: 'Меню' },
   { id: 'location', label: 'Локация' },
-  { id: 'contacts', label: 'Контакты' },
+  { id: 'contacts', label: 'конт' },
 ] as const
 
 export type MobileNavId = (typeof mobileNav)[number]['id']

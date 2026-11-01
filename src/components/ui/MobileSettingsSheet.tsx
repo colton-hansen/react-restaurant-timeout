@@ -5,7 +5,7 @@ import { useUiPreferences } from '@/context/UiPreferencesContext'
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock'
 
 export function MobileSettingsSheet() {
-  const { copy, theme, toggleTheme, locale, setLocale } = useUiPreferences()
+  const { copy, theme, setTheme, locale, setLocale } = useUiPreferences()
   const { open, closeSettings } = useMobileSettings()
   useBodyScrollLock(open)
 
@@ -44,27 +44,56 @@ export function MobileSettingsSheet() {
         </header>
 
         <div className="ct-settings-sheet__body">
-          <p className="ct-settings-sheet__label">{copy.settingsSheet.theme}</p>
-          <GrayButton type="button" onClick={toggleTheme}>
-            {theme === 'light' ? copy.themeDark : copy.themeLight}
-          </GrayButton>
+          <div className="ct-menu-block">
+            <h3 className="ct-menu-block__title">{copy.settingsSheet.theme}</h3>
+            <div className="ct-menu-block__wrap">
+              <ul className="ct-menu-block__list">
+                <li className="ct-menu-block__item">
+                  <button
+                    type="button"
+                    className={`ct-settings-sheet__action${theme === 'light' ? ' is-active' : ''}`}
+                    onClick={() => setTheme('light')}
+                  >
+                    {copy.themeLight}
+                  </button>
+                </li>
+                <li className="ct-menu-block__item">
+                  <button
+                    type="button"
+                    className={`ct-settings-sheet__action${theme === 'dark' ? ' is-active' : ''}`}
+                    onClick={() => setTheme('dark')}
+                  >
+                    {copy.themeDark}
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
 
-          <p className="ct-settings-sheet__label">{copy.settingsSheet.language}</p>
-          <div className="ct-settings-sheet__locale">
-            <GrayButton
-              type="button"
-              className={locale === 'ru' ? 'is-active' : undefined}
-              onClick={() => setLocale('ru')}
-            >
-              RU
-            </GrayButton>
-            <GrayButton
-              type="button"
-              className={locale === 'en' ? 'is-active' : undefined}
-              onClick={() => setLocale('en')}
-            >
-              EN
-            </GrayButton>
+          <div className="ct-menu-block">
+            <h3 className="ct-menu-block__title">{copy.settingsSheet.language}</h3>
+            <div className="ct-menu-block__wrap">
+              <ul className="ct-menu-block__list">
+                <li className="ct-menu-block__item">
+                  <button
+                    type="button"
+                    className={`ct-settings-sheet__action${locale === 'ru' ? ' is-active' : ''}`}
+                    onClick={() => setLocale('ru')}
+                  >
+                    RU
+                  </button>
+                </li>
+                <li className="ct-menu-block__item">
+                  <button
+                    type="button"
+                    className={`ct-settings-sheet__action${locale === 'en' ? ' is-active' : ''}`}
+                    onClick={() => setLocale('en')}
+                  >
+                    EN
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

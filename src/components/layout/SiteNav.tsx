@@ -16,7 +16,7 @@ export function SiteNav() {
     <header className="ct-nav-shell">
       <div className="ct-nav-shell__inner">
         <div className="ct-nav-bar">
-          <nav className="ct-nav" aria-label="Основная навигация">
+          <nav className="ct-nav" aria-label={copy.navAriaLabel}>
             {mainNav.map(({ id, label }) => (
               <a
                 key={id}

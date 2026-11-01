@@ -70,6 +70,15 @@ $ct-bp-desktop: 768px;
     z-index: 60;
   }
 
+  .ct-mobile-nav__bar {
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;
+    max-width: min(100%, 22rem);
+    pointer-events: auto;
+    width: fit-content;
+  }
+
   .ct-mobile-nav__pill {
     --ct-mobile-nav-pad: 2px;
     --ct-mobile-nav-gap: 2px;
@@ -81,51 +90,43 @@ $ct-bp-desktop: 768px;
     border-radius: 999px;
     box-shadow: 0 2px 12px rgb(0 0 0 / 0.08);
     display: flex;
-    gap: 0.25rem;
-    height: 48px;
-    max-width: min(100%, 20rem);
-    padding: var(--ct-mobile-nav-pad);
-    pointer-events: auto;
-    width: fit-content;
-  }
-
-  .ct-mobile-nav__track {
-    align-items: stretch;
-    display: flex;
+    flex: 1;
     gap: var(--ct-mobile-nav-gap);
+    height: 48px;
+    min-width: 0;
+    padding: var(--ct-mobile-nav-pad);
     position: relative;
   }
 
-  .ct-mobile-nav__settings {
+  .ct-mobile-nav__pill--settings {
     align-items: center;
-    background: transparent;
     border: 0;
-    border-left: 1px solid var(--ct-border);
-    border-radius: 0 999px 999px 0;
+    box-sizing: border-box;
     color: var(--ct-text-muted);
     cursor: pointer;
-    display: flex;
-    flex: 0 0 auto;
+    flex: 0 0 64px;
     flex-direction: column;
     font-family: inherit;
     gap: 2px;
-    height: 44px;
+    height: 48px;
     justify-content: center;
-    margin-left: 0.125rem;
-    min-width: 2.75rem;
-    padding: 0 0.35rem 0 0.45rem;
+    padding: 2px 0;
     transition: color 0.22s ease;
+    width: 64px;
 
     &.is-active {
       color: var(--ct-text);
     }
-  }
 
-  .ct-mobile-nav__settings .ct-mobile-nav__label {
-    font-size: 0.5625rem;
-    max-width: 2.5rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    .ct-mobile-nav__label {
+      font-size: 0.5625rem;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 
   .ct-mobile-nav__indicator {
