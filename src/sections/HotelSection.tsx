@@ -2,32 +2,35 @@ import hotelPhoto from '@/assets/a_2.webp'
 import { GrayButton } from '@/components/ui/GrayButton'
 import { MenuCategoryBlock } from '@/components/ui/MenuCategoryBlock'
 import { PhotoFrame } from '@/components/ui/PhotoFrame'
-import { hotelText, site } from '@/config/site'
+import { site } from '@/config/site'
+import { useUiPreferences } from '@/context/UiPreferencesContext'
 
 const restaurantTel = site.phoneRestaurant.replace(/\D/g, '')
 
-const hotelRatesBlock = {
-  title: hotelText.lead,
-  items: hotelText.rates.map(({ name, price }) => ({
-    name,
-    meta: price,
-  })),
-}
-
 export function HotelSection() {
+  const { copy } = useUiPreferences()
+
+  const hotelRatesBlock = {
+    title: copy.hotelRatesTitle,
+    items: copy.hotelRates.map(({ name, price }) => ({
+      name,
+      meta: price,
+    })),
+  }
+
   return (
     <section id="hotel" className="ct-anchor ct-section ct-section--narrow">
       <h2 className="ct-section__title ct-section__title--caps">
-        {hotelText.title}
+        {copy.sectionTitles.hotel}
       </h2>
 
       <div className="ct-bath">
         <div className="ct-bath__copy">
-          <p className="ct-prose">{hotelText.body}</p>
+          <p className="ct-prose">{copy.hotelBody}</p>
           <MenuCategoryBlock category={hotelRatesBlock} />
           <div className="ct-bath__actions">
             <GrayButton href={`tel:+${restaurantTel}`} arrow="right">
-              Забронировать номер
+              {copy.buttons.bookRoom}
             </GrayButton>
           </div>
         </div>
@@ -35,7 +38,7 @@ export function HotelSection() {
           <img
             className="ct-photo-frame__img"
             src={hotelPhoto}
-            alt="Отель «Тайм-аут» у озера"
+            alt=""
             loading="lazy"
           />
         </PhotoFrame>

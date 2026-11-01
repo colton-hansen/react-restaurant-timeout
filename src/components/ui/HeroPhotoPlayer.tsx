@@ -3,12 +3,14 @@ import { useEffect, useRef, useState } from 'react'
 import { GrayButton } from '@/components/ui/GrayButton'
 import { PhotoFrame } from '@/components/ui/PhotoFrame'
 import { heroGallery } from '@/config/homeGallery'
+import { useUiPreferences } from '@/context/UiPreferencesContext'
 
 const SLIDE_INTERVAL_MS = 3000
 
 type SlideMotion = 'next' | 'prev'
 
 export function HeroPhotoPlayer() {
+  const { copy } = useUiPreferences()
   const [index, setIndex] = useState(0)
   const [motion, setMotion] = useState<SlideMotion>('next')
   const [locked, setLocked] = useState(false)
@@ -55,12 +57,12 @@ export function HeroPhotoPlayer() {
 
       <div className="ct-photo-player__controls">
         <GrayButton arrow="left" onClick={() => go(index - 1)} disabled={locked}>
-          Назад
+          {copy.buttons.galleryBack}
         </GrayButton>
         <GrayButton
           type="button"
           className={locked ? 'is-active' : undefined}
-          aria-label={locked ? 'Слайд закреплён' : 'Закрепить слайд'}
+          aria-label={locked ? copy.gallery.slidePinned : copy.gallery.pinSlide}
           onClick={() => setLocked((v) => !v)}
         >
           {locked ? (
@@ -70,7 +72,7 @@ export function HeroPhotoPlayer() {
           )}
         </GrayButton>
         <GrayButton arrow="right" onClick={() => go(index + 1)} disabled={locked}>
-          Вперёд
+          {copy.buttons.galleryForward}
         </GrayButton>
       </div>
     </div>

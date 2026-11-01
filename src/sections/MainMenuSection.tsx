@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { GrayButton } from '@/components/ui/GrayButton'
 import { MenuCategoryGrid } from '@/components/ui/MenuCategoryGrid'
 import { useMenuGallery } from '@/context/MenuGalleryContext'
+import { useUiPreferences } from '@/context/UiPreferencesContext'
 import {
   mainMenuCategories,
   mainMenuColumnTitles,
@@ -12,11 +13,12 @@ import {
 export function MainMenuSection() {
   const [expanded, setExpanded] = useState(false)
   const { openGallery } = useMenuGallery()
+  const { copy } = useUiPreferences()
 
   return (
     <section id="menu" className="ct-anchor ct-section ct-section--narrow">
       <h2 className="ct-section__title ct-section__title--caps">
-        Основное меню
+        {copy.sectionTitles.menu}
       </h2>
 
       <MenuCategoryGrid
@@ -30,11 +32,11 @@ export function MainMenuSection() {
       <div className="ct-section__actions">
         {!expanded ? (
           <GrayButton type="button" arrow="right" onClick={() => setExpanded(true)}>
-            Показать ещё
+            {copy.buttons.showMore}
           </GrayButton>
         ) : null}
         <GrayButton type="button" arrow="right" onClick={openGallery}>
-          Все меню
+          {copy.buttons.allMenus}
         </GrayButton>
       </div>
     </section>

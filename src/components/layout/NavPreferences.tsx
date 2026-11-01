@@ -1,5 +1,4 @@
 import { Languages, Moon, Sun } from 'lucide-react'
-import { GrayButton } from '@/components/ui/GrayButton'
 import { useUiPreferences } from '@/context/UiPreferencesContext'
 
 export function NavPreferences() {
@@ -7,26 +6,26 @@ export function NavPreferences() {
 
   return (
     <div className="ct-nav-preferences">
-      <GrayButton
+      <button
         type="button"
-        iconOnly
+        className="ct-nav-preferences__btn"
         onClick={toggleTheme}
         aria-label={theme === 'light' ? copy.themeDark : copy.themeLight}
       >
         {theme === 'dark' ? (
-          <Sun className="ct-gray-btn__icon" aria-hidden />
+          <Sun className="ct-nav-preferences__icon" aria-hidden />
         ) : (
-          <Moon className="ct-gray-btn__icon" aria-hidden />
+          <Moon className="ct-nav-preferences__icon" aria-hidden />
         )}
-      </GrayButton>
-      <GrayButton
+      </button>
+      <button
         type="button"
-        iconOnly
+        className="ct-nav-preferences__btn"
         onClick={toggleLocale}
         aria-label={locale === 'ru' ? copy.localeSwitchToEn : copy.localeSwitchToRu}
       >
-        <Languages className="ct-gray-btn__icon" aria-hidden />
-      </GrayButton>
+        <Languages className="ct-nav-preferences__icon" aria-hidden />
+      </button>
     </div>
   )
 }

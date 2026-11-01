@@ -74,6 +74,10 @@ export function UiPreferencesProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.lang = locale === 'en' ? 'en' : 'ru'
+    document.title =
+      locale === 'en'
+        ? 'Time-out — restaurant & bath house'
+        : 'Тайм-аут — ресторан и банный комплекс'
   }, [locale])
 
   const value = useMemo(

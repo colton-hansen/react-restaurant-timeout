@@ -93,6 +93,20 @@
   padding-inline: 0.5rem;
 }
 
+.ct-gray-btn--ghost {
+  background: transparent;
+
+  &:hover:not(:disabled) {
+    background: transparent;
+    color: var(--ct-text);
+  }
+
+  &.is-active {
+    background: transparent;
+    color: var(--ct-text);
+  }
+}
+
 .ct-photo-frame {
   background: var(--ct-surface-muted);
   border: 0;

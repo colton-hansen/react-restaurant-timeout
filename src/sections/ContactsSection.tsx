@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { MenuCategoryGrid } from '@/components/ui/MenuCategoryGrid'
 import type { MenuCategory } from '@/config/menus/types'
-import { hours, site, socialLinks } from '@/config/site'
+import { site, socialLinks } from '@/config/site'
 import { useUiPreferences } from '@/context/UiPreferencesContext'
 
 export function ContactsSection() {
@@ -12,17 +12,22 @@ export function ContactsSection() {
     const schedule = copy.contactBlocks.hours
     const social = copy.contactBlocks.social
 
+    const socialLabelById: Record<string, string> = {
+      vk: copy.socialLabels.vk,
+      whatsapp: copy.socialLabels.whatsapp,
+    }
+
     return [
       {
         title: phones,
         items: [
           {
-            name: site.phoneRestaurantLabel,
+            name: copy.phoneLabels.restaurant,
             meta: site.phoneRestaurant,
             metaHref: `tel:${site.phoneRestaurant.replace(/\D/g, '')}`,
           },
           {
-            name: site.phoneBathLabel,
+            name: copy.phoneLabels.bath,
             meta: site.phoneBath,
             metaHref: `tel:${site.phoneBath.replace(/\D/g, '')}`,
           },
@@ -30,14 +35,14 @@ export function ContactsSection() {
       },
       {
         title: schedule,
-        items: hours.map(({ days, time }) => ({ name: days, meta: time })),
+        items: copy.hours.map(({ days, time }) => ({ name: days, meta: time })),
       },
       {
         title: social,
         items: socialLinks
           .filter((link) => link.id !== 'phone')
           .map((link) => ({
-            name: link.displayLabel,
+            name: socialLabelById[link.id] ?? link.displayLabel,
             nameHref: link.href,
             external: true,
           })),

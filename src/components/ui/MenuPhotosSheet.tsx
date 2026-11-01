@@ -2,9 +2,11 @@ import { useEffect } from 'react'
 import { GrayButton } from '@/components/ui/GrayButton'
 import { menuPhotoGallery, vkMenuStoreUrl } from '@/config/menuPhotoGallery'
 import { useMenuGallery } from '@/context/MenuGalleryContext'
+import { useUiPreferences } from '@/context/UiPreferencesContext'
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock'
 
 export function MenuPhotosSheet() {
+  const { copy } = useUiPreferences()
   const { open, closeGallery } = useMenuGallery()
   useBodyScrollLock(open)
 
@@ -26,19 +28,19 @@ export function MenuPhotosSheet() {
       <button
         type="button"
         className="ct-menu-sheet__backdrop"
-        aria-label="Закрыть галерею меню"
+        aria-label={copy.menuSheet.close}
         onClick={closeGallery}
       />
       <div
         className="ct-menu-sheet__panel"
         role="dialog"
         aria-modal="true"
-        aria-label="Все меню"
+        aria-label={copy.menuSheet.title}
       >
         <div className="ct-menu-sheet__handle" aria-hidden />
         <header className="ct-menu-sheet__header">
           <GrayButton type="button" arrow="left" onClick={closeGallery}>
-            Назад
+            {copy.menuSheet.back}
           </GrayButton>
         </header>
 
@@ -63,7 +65,7 @@ export function MenuPhotosSheet() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Витрина услуг VK
+            {copy.menuSheet.vkStore}
           </a>
         </footer>
       </div>
