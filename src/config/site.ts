@@ -32,6 +32,8 @@ export const mainNav: NavItem[] = [
   { id: 'contacts', label: 'Контакты' },
 ]
 
+export const mainNavIdSet = new Set(mainNav.map((item) => item.id))
+
 /** Ресторан Time Out — https://yandex.ru/maps/-/CXfl6Aiw */
 export const yandexMapsShareUrl = 'https://yandex.ru/maps/-/CXfl6Aiw'
 

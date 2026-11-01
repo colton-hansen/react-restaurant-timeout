@@ -19,8 +19,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem 1.25rem;
+  height: fit-content;
   justify-content: space-between;
   margin-bottom: 0.75rem;
+
+  .ct-section__title {
+    margin-bottom: 0;
+  }
 }
 
 .ct-section__price-tag {
@@ -116,8 +121,67 @@
   width: 100%;
 }
 
+.ct-photo-player__stage {
+  overflow: hidden;
+  position: relative;
+}
+
 .ct-photo-player__display .ct-photo-frame__img {
   aspect-ratio: 16 / 9;
+}
+
+.ct-photo-player__slide {
+  animation-duration: 0.42s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ct-photo-player__slide--next {
+  animation-name: ct-photo-slide-next;
+}
+
+.ct-photo-player__slide--prev {
+  animation-name: ct-photo-slide-prev;
+}
+
+@keyframes ct-photo-slide-next {
+  from {
+    opacity: 0;
+    transform: translateX(2.5%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes ct-photo-slide-prev {
+  from {
+    opacity: 0;
+    transform: translateX(-2.5%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ct-photo-player__slide {
+    animation: ct-photo-fade-in 0.25s ease both;
+  }
+
+  @keyframes ct-photo-fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
 }
 
 .ct-photo-player__controls {

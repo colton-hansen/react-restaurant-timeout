@@ -1,33 +1,13 @@
-import { useEffect, useState } from 'react'
-import { mainNav } from '@/config/site'
+import { mainNav, mainNavIdSet } from '@/config/site'
+import { useHashNav } from '@/hooks/useHashNav'
 
-const navIds = new Set(mainNav.map((item) => item.id))
-
-function readHashId() {
-  return window.location.hash.replace('#', '')
-}
-
-function resolveActiveId(): string {
-  const hash = readHashId()
-  if (hash && navIds.has(hash)) return hash
+function resolveDesktopActive(hash: string) {
+  if (hash && mainNavIdSet.has(hash)) return hash
   return 'about'
 }
 
 export function SiteNav() {
-  const [activeId, setActiveId] = useState('about')
-
-  useEffect(() => {
-    const sync = () => setActiveId(resolveActiveId())
-
-    const hash = readHashId()
-    if (!hash || !navIds.has(hash)) {
-      window.history.replaceState(null, '', '#about')
-    }
-
-    sync()
-    window.addEventListener('hashchange', sync)
-    return () => window.removeEventListener('hashchange', sync)
-  }, [])
+  const activeId = useHashNav(resolveDesktopActive, 'about', mainNavIdSet)
 
   return (
     <header className="ct-nav-shell">

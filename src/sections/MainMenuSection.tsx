@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { GrayButton } from '@/components/ui/GrayButton'
 import { MenuCategoryGrid } from '@/components/ui/MenuCategoryGrid'
+import { useMenuGallery } from '@/context/MenuGalleryContext'
 import {
   mainMenuCategories,
   mainMenuColumnTitles,
@@ -10,6 +11,7 @@ import {
 
 export function MainMenuSection() {
   const [expanded, setExpanded] = useState(false)
+  const { openGallery } = useMenuGallery()
 
   return (
     <section id="menu" className="ct-anchor ct-section ct-section--narrow">
@@ -31,7 +33,7 @@ export function MainMenuSection() {
             Показать ещё
           </GrayButton>
         ) : null}
-        <GrayButton href="#banquet-menu" arrow="right">
+        <GrayButton type="button" arrow="right" onClick={openGallery}>
           Все меню
         </GrayButton>
       </div>

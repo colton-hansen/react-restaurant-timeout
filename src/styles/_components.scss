@@ -297,3 +297,131 @@
   font-weight: 500;
   white-space: nowrap;
 }
+
+.ct-menu-sheet {
+  inset: 0;
+  position: fixed;
+  z-index: 80;
+}
+
+.ct-menu-sheet__backdrop {
+  background: rgb(0 0 0 / 0.45);
+  border: 0;
+  cursor: pointer;
+  inset: 0;
+  position: absolute;
+}
+
+.ct-menu-sheet__panel {
+  animation: ct-menu-sheet-in 0.34s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--ct-page-bg);
+  border-radius: 1.25rem 1.25rem 0 0;
+  bottom: 0;
+  box-shadow: 0 -8px 32px rgb(0 0 0 / 0.12);
+  display: flex;
+  flex-direction: column;
+  left: 50%;
+  max-height: min(88vh, 720px);
+  max-width: 28rem;
+  position: absolute;
+  transform: translateX(-50%);
+  width: calc(100% - 1.5rem);
+}
+
+@keyframes ct-menu-sheet-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(12%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.ct-menu-sheet__handle {
+  background: var(--ct-border);
+  border-radius: 999px;
+  flex-shrink: 0;
+  height: 4px;
+  margin: 0.625rem auto 0;
+  width: 2.5rem;
+}
+
+.ct-menu-sheet__header {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  padding: 0.625rem 1rem 0.75rem;
+
+  .ct-gray-btn {
+    width: fit-content;
+  }
+}
+
+.ct-menu-sheet__scroll {
+  flex: 1;
+  min-height: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0.25rem 1rem 0.75rem;
+}
+
+.ct-menu-sheet__page {
+  margin: 0 0 1rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.ct-menu-sheet__page-img {
+  background: var(--ct-surface-muted);
+  border-radius: var(--ct-menu-radius);
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.ct-menu-sheet__footer {
+  border-top: 1px solid var(--ct-border);
+  flex-shrink: 0;
+  padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom, 0px));
+  text-align: center;
+}
+
+.ct-menu-sheet__maps-link {
+  color: var(--ct-text-muted);
+  font-size: var(--ct-text-sm);
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--ct-text);
+  }
+}
+
+@media (min-width: 768px) {
+  .ct-menu-sheet__panel {
+    border-radius: 1.25rem;
+    bottom: auto;
+    max-height: min(84vh, 760px);
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: min(28rem, calc(100% - 3rem));
+  }
+
+  @keyframes ct-menu-sheet-in {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -46%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

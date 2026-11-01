@@ -10,6 +10,7 @@
   --ct-text-muted: #686868;
   --ct-text-subtle: #686868;
   --ct-nav-bg: #e8e8e8;
+  --ct-nav-active-bg: #d2d2d2;
 
   --ct-radius: 8px;
   --ct-radius-sm: 8px;
@@ -19,7 +20,9 @@
   --ct-content-max: 960px;
   --ct-content-narrow: 960px;
   --ct-content-wide: min(1440px, 100%);
+  /* Desktop nav; на mobile переопределяется в _mobile.scss */
   --ct-nav-height: 48px;
+  --ct-bp-desktop: 768px;
   --ct-page-pad: clamp(16px, 3vw, 32px);
 
   --ct-text-xs: 0.8125rem;

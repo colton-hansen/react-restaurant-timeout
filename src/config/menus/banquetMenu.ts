@@ -8,6 +8,14 @@ export const banquetMenuColumnTitles = [
   ['Горячее', 'Напитки'],
 ] as const
 
+/** До «Показать ещё»: только горячее и напитки */
+export const banquetMenuPreviewTitles = ['Горячее', 'Напитки'] as const
+
+export const banquetMenuPreviewColumnTitles = [
+  ['Горячее'],
+  ['Напитки'],
+] as const
+
 /** Банкетное меню — данные с макета (фото banquet_menu) */
 export const banquetMenuCategories: MenuCategory[] = [
   {
