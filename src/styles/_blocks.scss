@@ -1,0 +1,251 @@
+.ct-section__title--caps {
+  font-size: clamp(1.5rem, 2.4vw, 1.75rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ct-section--narrow {
+  margin-inline: auto;
+  max-width: var(--ct-content-narrow);
+}
+
+.ct-section--wide {
+  margin-inline: auto;
+  max-width: var(--ct-content-wide);
+}
+
+.ct-section__heading-row {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.ct-section__price-tag {
+  color: var(--ct-text-muted);
+  font-size: var(--ct-text-lg);
+  font-weight: 600;
+  margin: 0;
+}
+
+.ct-section__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.ct-gray-btn {
+  align-items: center;
+  background: var(--ct-surface-muted);
+  border: 0;
+  border-radius: var(--ct-menu-radius);
+  color: var(--ct-text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: var(--ct-text-sm);
+  font-weight: 500;
+  gap: 0.25rem;
+  height: 34px;
+  line-height: 1;
+  padding: 0 0.75rem;
+  text-decoration: none;
+  transition: background 0.12s ease;
+
+  &:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--ct-surface-muted) 80%, var(--ct-border));
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  &.is-active {
+    background: var(--ct-border);
+  }
+}
+
+.ct-gray-btn__icon {
+  flex-shrink: 0;
+  height: 1rem;
+  width: 1rem;
+}
+
+.ct-photo-frame {
+  background: var(--ct-surface-muted);
+  border: 0;
+  border-radius: var(--ct-radius-sm);
+  height: fit-content;
+  padding: 0.5rem;
+}
+
+.ct-photo-frame__img {
+  border-radius: var(--ct-radius-sm);
+  display: block;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.ct-about {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 768px) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+.ct-about__spacer {
+  min-height: 0;
+}
+
+.ct-about__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.ct-photo-player__display {
+  width: 100%;
+}
+
+.ct-photo-player__display .ct-photo-frame__img {
+  aspect-ratio: 16 / 9;
+}
+
+.ct-photo-player__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.ct-menu-columns {
+  display: grid;
+  gap: 1rem 1.5rem;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.ct-menu-columns__col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.ct-menu-columns__item.is-hidden {
+  display: none;
+}
+
+.ct-menu-block {
+  height: fit-content;
+  min-width: 0;
+}
+
+.ct-menu-block__title {
+  color: var(--ct-text-muted);
+  font-size: var(--ct-text-lead);
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0 0 0.5rem;
+}
+
+.ct-menu-block__wrap {
+  background: var(--ct-surface-muted);
+  border-radius: var(--ct-menu-radius);
+  height: fit-content;
+  overflow: hidden;
+}
+
+.ct-menu-block__list {
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem 1rem;
+}
+
+.ct-menu-block__item {
+  align-items: baseline;
+  color: var(--ct-text-muted);
+  display: flex;
+  font-size: var(--ct-text-base);
+  font-weight: 600;
+  gap: 0.75rem;
+  justify-content: space-between;
+  padding: 0.375rem 0;
+
+  & + & {
+    border-top: 1px solid var(--ct-border);
+    margin-top: 0.375rem;
+    padding-top: 0.75rem;
+  }
+}
+
+.ct-menu-block__name {
+  min-width: 0;
+}
+
+.ct-menu-block__meta {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.ct-menu-block__link {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.ct-location__address {
+  margin: 0 0 1rem;
+  max-width: none;
+}
+
+.ct-bath {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 768px) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+.ct-bath__actions {
+  margin-top: 1rem;
+}
+
+.ct-bath__media .ct-photo-frame__img {
+  aspect-ratio: 4 / 3;
+}
+
+.ct-location-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.ct-yandex-embed {
+  border: 0;
+  border-radius: var(--ct-radius-sm);
+  display: block;
+  height: 500px;
+  width: 100%;
+}

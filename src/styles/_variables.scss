@@ -1,0 +1,32 @@
+:root {
+  --ct-font: 'Manrope', system-ui, sans-serif;
+
+  /* Палитра PC-макета Figma (blueprint / home, node table wrap) */
+  --ct-page-bg: #ffffff;
+  --ct-surface: #ffffff;
+  --ct-surface-muted: #eaeaea;
+  --ct-border: #b8b8b8;
+  --ct-text: #181818;
+  --ct-text-muted: #686868;
+  --ct-text-subtle: #686868;
+  --ct-nav-bg: #e8e8e8;
+
+  --ct-radius: 8px;
+  --ct-radius-sm: 8px;
+  --ct-menu-radius: 12px;
+  --ct-text-lead: 1.5rem;
+  --ct-shadow: none;
+  --ct-content-max: 960px;
+  --ct-content-narrow: 960px;
+  --ct-content-wide: min(1440px, 100%);
+  --ct-nav-height: 48px;
+  --ct-page-pad: clamp(16px, 3vw, 32px);
+
+  --ct-text-xs: 0.8125rem;
+  --ct-text-sm: 0.875rem;
+  --ct-text-base: 1rem;
+  --ct-text-md: 1.0625rem;
+  --ct-text-lg: 1.125rem;
+  --ct-text-xl: clamp(1.375rem, 1.6vw, 1.625rem);
+  --ct-text-2xl: clamp(1.75rem, 2.2vw, 2.125rem);
+}
