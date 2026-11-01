@@ -4,13 +4,17 @@ import { MenuCategoryGrid } from '@/components/ui/MenuCategoryGrid'
 import {
   banquetMenuCategories,
   banquetMenuColumnTitles,
-  banquetMenuPreviewColumnTitles,
-  banquetMenuPreviewTitles,
+  banquetMenuMobilePreviewTitles,
   banquetMenuPriceLabel,
 } from '@/config/menus/banquetMenu'
+import { useMaxWidth } from '@/hooks/useMaxWidth'
+
+const MOBILE_BP = 767
 
 export function BanquetMenuSection() {
+  const isMobile = useMaxWidth(MOBILE_BP)
   const [expanded, setExpanded] = useState(false)
+  const showAll = !isMobile || expanded
 
   return (
     <section id="banquet-menu" className="ct-anchor ct-section ct-section--narrow">
@@ -24,12 +28,11 @@ export function BanquetMenuSection() {
       <MenuCategoryGrid
         categories={banquetMenuCategories}
         columnTitleGroups={banquetMenuColumnTitles}
-        previewColumnTitleGroups={banquetMenuPreviewColumnTitles}
-        showAll={expanded}
-        previewTitles={banquetMenuPreviewTitles}
+        showAll={showAll}
+        previewTitles={banquetMenuMobilePreviewTitles}
       />
 
-      {!expanded ? (
+      {isMobile && !expanded ? (
         <div className="ct-section__actions">
           <GrayButton type="button" arrow="right" onClick={() => setExpanded(true)}>
             Показать ещё

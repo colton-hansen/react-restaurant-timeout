@@ -6,7 +6,7 @@ import {
   mainMenuCategories,
   mainMenuColumnTitles,
   mainMenuPreviewColumnTitles,
-  mainMenuPreviewTitles,
+  mainMenuPreviewMaxItems,
 } from '@/config/menus/mainMenu'
 
 export function MainMenuSection() {
@@ -23,8 +23,8 @@ export function MainMenuSection() {
         categories={mainMenuCategories}
         columnTitleGroups={mainMenuColumnTitles}
         previewColumnTitleGroups={mainMenuPreviewColumnTitles}
+        previewMaxItemsPerCategory={mainMenuPreviewMaxItems}
         showAll={expanded}
-        previewTitles={mainMenuPreviewTitles}
       />
 
       <div className="ct-section__actions">

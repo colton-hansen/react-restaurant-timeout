@@ -2,13 +2,14 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import type { ReactNode } from 'react'
 
 type GrayButtonProps = {
-  children: ReactNode
+  children?: ReactNode
   href?: string
   type?: 'button' | 'submit'
   arrow?: 'none' | 'right' | 'left'
   className?: string
   onClick?: () => void
   disabled?: boolean
+  iconOnly?: boolean
   'aria-label'?: string
 }
 
@@ -20,11 +21,20 @@ export function GrayButton({
   className,
   onClick,
   disabled,
+  iconOnly,
   'aria-label': ariaLabel,
 }: GrayButtonProps) {
-  const classes = ['ct-gray-btn', className].filter(Boolean).join(' ')
+  const classes = [
+    'ct-gray-btn',
+    iconOnly ? 'ct-gray-btn--icon-only' : undefined,
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ')
 
-  const content = (
+  const content = iconOnly ? (
+    children
+  ) : (
     <>
       {arrow === 'left' ? (
         <ChevronLeft className="ct-gray-btn__icon" aria-hidden />

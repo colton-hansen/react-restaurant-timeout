@@ -7,11 +7,16 @@ $ct-bp-desktop: 768px;
     --ct-page-pad: 12px;
     --ct-content-max: 100%;
     --ct-content-narrow: 100%;
-    --ct-content-wide: 100%;
     --ct-text-lead: 1.125rem;
     --ct-text-xl: 1.25rem;
     --ct-text-md: 0.9375rem;
     --ct-menu-radius: 10px;
+  }
+
+  .ct-section--wide {
+    margin-inline: 0;
+    max-width: none;
+    width: 100%;
   }
 
   .ct-nav-shell {
@@ -45,8 +50,8 @@ $ct-bp-desktop: 768px;
     letter-spacing: 0.035em;
   }
 
-  .ct-about__spacer {
-    display: none;
+  .ct-about__gallery {
+    margin-top: 0.25rem;
   }
 
   .ct-yandex-embed {

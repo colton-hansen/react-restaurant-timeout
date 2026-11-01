@@ -45,3 +45,18 @@ export function menuColumnsFromTitleGroups(
 
   return [pick(groups[0]), pick(groups[1])]
 }
+
+export function menuColumnsFromThreeGroups(
+  categories: MenuCategory[],
+  groups: readonly [readonly string[], readonly string[], readonly string[]],
+): [MenuCategory[], MenuCategory[], MenuCategory[]] {
+  const byTitle = new Map(categories.map((c) => [c.title, c]))
+
+  const pick = (titles: readonly string[]) =>
+    titles.flatMap((title) => {
+      const category = byTitle.get(title)
+      return category ? [category] : []
+    })
+
+  return [pick(groups[0]), pick(groups[1]), pick(groups[2])]
+}

@@ -1,7 +1,9 @@
 export type MenuLine = {
   name: string
-  meta: string
+  meta?: string
   metaHref?: string
+  nameHref?: string
+  external?: boolean
 }
 
 export type MenuCategory = {

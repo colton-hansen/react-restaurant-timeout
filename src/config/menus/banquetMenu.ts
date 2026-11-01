@@ -2,18 +2,16 @@ import type { MenuCategory } from '@/config/menus/types'
 
 export const banquetMenuPriceLabel = '3200 ₽ / чел.'
 
-/** Две колонки банкетного меню (как в section-banquet-menu) */
+/** Три колонки банкетного меню */
 export const banquetMenuColumnTitles = [
-  ['Холодные закуски и салаты', 'Выпечка'],
-  ['Горячее', 'Напитки'],
+  ['Холодные закуски и салаты'],
+  ['Горячее'],
+  ['Напитки', 'Выпечка'],
 ] as const
 
-/** До «Показать ещё»: только горячее и напитки */
-export const banquetMenuPreviewTitles = ['Горячее', 'Напитки'] as const
-
-export const banquetMenuPreviewColumnTitles = [
-  ['Горячее'],
-  ['Напитки'],
+/** Mobile до «Показать ещё»: только первый блок (холодные закуски) */
+export const banquetMenuMobilePreviewTitles = [
+  'Холодные закуски и салаты',
 ] as const
 
 /** Банкетное меню — данные с макета (фото banquet_menu) */

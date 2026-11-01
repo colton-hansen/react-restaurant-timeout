@@ -1,9 +1,9 @@
 import {
   AboutSection,
   BanquetMenuSection,
+  HotelSection,
   BathSection,
   ContactsSection,
-  HomeSection,
   LocationSection,
   MainMenuSection,
 } from '@/sections'
@@ -13,9 +13,9 @@ export function HomePage() {
   return (
     <>
       <AboutSection />
-      <HomeSection />
       <MainMenuSection />
       <BanquetMenuSection />
+      <HotelSection />
       <BathSection />
       <LocationSection />
       <ContactsSection />

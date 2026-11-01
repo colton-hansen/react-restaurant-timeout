@@ -1,3 +1,4 @@
+import { HeroPhotoPlayer } from '@/components/ui/HeroPhotoPlayer'
 import { GrayButton } from '@/components/ui/GrayButton'
 import { aboutText } from '@/config/site'
 
@@ -9,7 +10,7 @@ export function AboutSection() {
           <h2 className="ct-section__title ct-section__title--caps">О нас</h2>
           <p className="ct-prose">{aboutText}</p>
           <div className="ct-about__actions">
-            <GrayButton href="#contacts">Забронировать номер</GrayButton>
+            <GrayButton href="#hotel">Забронировать номер</GrayButton>
             <GrayButton href="#menu" arrow="right">
               Основное меню
             </GrayButton>
@@ -18,7 +19,9 @@ export function AboutSection() {
             </GrayButton>
           </div>
         </div>
-        <div className="ct-about__spacer" aria-hidden />
+        <div className="ct-about__gallery">
+          <HeroPhotoPlayer />
+        </div>
       </div>
     </section>
   )
