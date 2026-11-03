@@ -1,7 +1,0 @@
-export { AboutSection } from '@/sections/AboutSection'
-export { BanquetMenuSection } from '@/sections/BanquetMenuSection'
-export { BathSection } from '@/sections/BathSection'
-export { ContactsSection } from '@/sections/ContactsSection'
-export { HotelSection } from '@/sections/HotelSection'
-export { LocationSection } from '@/sections/LocationSection'
-export { MainMenuSection } from '@/sections/MainMenuSection'

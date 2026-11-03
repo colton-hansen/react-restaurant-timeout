@@ -1,6 +1,9 @@
 import type { MenuCategory } from '@/config/menus/types'
 
-export const banquetMenuPriceLabel = '3200 ₽ / чел.'
+export const banquetMenuPriceLabel = '3200 ₽ / чел. — состав ниже'
+
+export const banquetMenuAltPriceHint =
+  'Банкет 4500 ₽ / чел. — позиции только на скане, в расшифровке их нет.'
 
 /** Три колонки банкетного меню */
 export const banquetMenuColumnTitles = [

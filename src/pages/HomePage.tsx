@@ -1,24 +1,22 @@
-import {
-  AboutSection,
-  BanquetMenuSection,
-  HotelSection,
-  BathSection,
-  ContactsSection,
-  LocationSection,
-  MainMenuSection,
-} from '@/sections'
+import { AboutSection } from '@/sections/AboutSection'
+import { BathSection } from '@/sections/BathSection'
+import { HeroSection } from '@/sections/HeroSection'
+import { HotelSection } from '@/sections/HotelSection'
+import { MapSection } from '@/sections/MapSection'
+import { MenuSection } from '@/sections/MenuSection'
+import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 
-/** Порядок секций как на PC-макете Figma (home) */
 export function HomePage() {
+  useDocumentTitle('Ресторан Тайм-аут')
+
   return (
     <>
+      <HeroSection />
       <AboutSection />
-      <MainMenuSection />
-      <BanquetMenuSection />
+      <MenuSection />
       <HotelSection />
       <BathSection />
-      <LocationSection />
-      <ContactsSection />
+      <MapSection />
     </>
   )
 }

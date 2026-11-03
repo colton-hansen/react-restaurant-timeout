@@ -1,35 +1,39 @@
 import bathPhoto from '@/assets/bath.jpg'
-import { GrayButton } from '@/components/ui/GrayButton'
-import { PhotoFrame } from '@/components/ui/PhotoFrame'
-import { useUiPreferences } from '@/context/UiPreferencesContext'
+import { PillButton } from '@/components/PillButton'
+import { bathText, site } from '@/config/site'
 
 export function BathSection() {
-  const { copy } = useUiPreferences()
-
   return (
-    <section id="bath" className="ct-anchor ct-section ct-section--narrow">
-      <h2 className="ct-section__title ct-section__title--caps">
-        {copy.sectionTitles.bath}
-      </h2>
-
-      <div className="ct-bath">
-        <div className="ct-bath__copy">
-          <p className="ct-prose ct-prose--muted">{copy.bathLead}</p>
-          <p className="ct-prose">{copy.bathBody}</p>
-          <div className="ct-bath__actions">
-            <GrayButton href="#contacts" arrow="right">
-              {copy.buttons.bookBath}
-            </GrayButton>
+    <section id="bath" className="scroll-mt-32 bg-paper">
+      <div className="mx-auto grid max-w-[var(--width-content)] items-center gap-10 px-4 py-16 md:px-8 md:py-24 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <h2 className="text-4xl md:text-6xl">{bathText.title}</h2>
+          <p className="mt-3 font-serif text-lg italic text-muted">
+            {bathText.lead}
+          </p>
+          <ul className="mt-6 grid grid-cols-2 gap-3">
+            {bathText.amenities.map((item) => (
+              <li
+                key={item}
+                className="rounded-[var(--radius-card)] bg-surface px-4 py-3 font-display text-sm uppercase tracking-[0.1em] text-ink"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 font-serif text-base leading-relaxed text-muted">
+            {bathText.body}
+          </p>
+          <div className="mt-8">
+            <PillButton href={site.phoneBathTel}>Забронировать баню</PillButton>
           </div>
         </div>
-        <PhotoFrame className="ct-bath__media">
-          <img
-            className="ct-photo-frame__img"
-            src={bathPhoto}
-            alt=""
-            loading="lazy"
-          />
-        </PhotoFrame>
+        <img
+          src={bathPhoto}
+          alt="Банный комплекс Тайм-аут"
+          className="aspect-[5/4] w-full rounded-[var(--radius-card)] object-cover"
+          loading="lazy"
+        />
       </div>
     </section>
   )

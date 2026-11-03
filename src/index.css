@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&display=swap');
+
+@import 'tailwindcss';
+
+@theme {
+  --color-bg: #f5f4f2;
+  --color-surface: #ffffff;
+  --color-paper: #edebe8;
+  --color-ink: #393330;
+  --color-muted: #4f4844;
+  --color-accent: #ee8542;
+  --color-cta: #ee8542;
+  --color-border: #d2cfcc;
+  --font-sans: 'Alumni Sans', system-ui, sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+  --font-display: 'Alumni Sans', system-ui, sans-serif;
+  --radius-card: 2rem;
+  --radius-pill: 999px;
+  --width-content: 75rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg text-muted antialiased;
+    font-family: var(--font-serif);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    line-height: 1.64;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-accent) 35%, transparent);
+  }
+}
