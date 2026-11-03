@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { DishGallery } from '@/components/DishGallery'
 import { Lightbox } from '@/components/Lightbox'
 import { MenuCategoryGrid } from '@/components/MenuCategoryGrid'
 import { menuScans } from '@/config/menuGallery'
@@ -23,6 +24,8 @@ export function MenuSection() {
     <section id="menu" className="scroll-mt-32 bg-paper">
       <div className="mx-auto max-w-[var(--width-content)] px-4 py-16 md:px-8 md:py-24">
         <h2 className="mb-10 text-4xl md:text-6xl">Основное меню</h2>
+
+        <DishGallery />
 
         <MenuCategoryGrid
           categories={mainMenuCategories}
